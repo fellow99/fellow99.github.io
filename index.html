@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="fellow99 — independent full-stack developer building AI-native open-source tools across desktop, web and mobile.">
+<title>fellow99 — Build with AI</title>
+<script>
+  (function () {
+    var root = document.documentElement;
+    try {
+      var t = localStorage.getItem('fellow99-theme');
+      if (t !== 'light' && t !== 'dark') {
+        t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+      }
+      root.setAttribute('data-theme', t);
+      root.classList.add('js');
+      // Failsafe: if the deferred site script never runs, reveal all content.
+      window.setTimeout(function () {
+        if (!window.__fellow99Ready) root.classList.remove('js');
+      }, 2000);
+    } catch (e) { /* no-op: CSS default theme still applies */ }
+  })();
+</script>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<svg class="svg-sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-desktop" viewBox="0 0 24 24">
+    <rect x="2.5" y="4" width="19" height="13" rx="2"/>
+    <path d="M8.5 21h7M12 17v4"/>
+  </symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24">
+    <path d="m12 3 9 5-9 5-9-5 9-5Z"/>
+    <path d="m3 12.5 9 5 9-5"/>
+    <path d="m3 16.5 9 5 9-5"/>
+  </symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24">
+    <path d="M11 3.5 12.5 8.5 17.5 10 12.5 11.5 11 16.5 9.5 11.5 4.5 10 9.5 8.5 11 3.5Z"/>
+    <path d="M18 15.2 18.8 17.7 21.3 18.5 18.8 19.3 18 21.8 17.2 19.3 14.7 18.5 17.2 17.7 18 15.2Z"/>
+  </symbol>
+  <symbol id="i-route" viewBox="0 0 24 24">
+    <circle cx="6" cy="6" r="2.5"/>
+    <circle cx="6" cy="18" r="2.5"/>
+    <circle cx="18" cy="12" r="2.5"/>
+    <path d="M8.5 6H13a3 3 0 0 1 3 3v.5M8.5 18H13a3 3 0 0 0 3-3v-.5"/>
+  </symbol>
+  <symbol id="i-gamepad" viewBox="0 0 24 24">
+    <path d="M8 7h8a5.5 5.5 0 0 1 5.5 5.5A3.5 3.5 0 0 1 15.2 14L14 12.5h-4L8.8 14A3.5 3.5 0 0 1 2.5 12.5 5.5 5.5 0 0 1 8 7Z"/>
+    <path d="M7 10.2v2.6M5.7 11.5h2.6M16.4 10.6h.01M18 12.2h.01"/>
+  </symbol>
+  <symbol id="i-cube" viewBox="0 0 24 24">
+    <path d="M12 2.8 21 8v8l-9 5.2L3 16V8l9-5.2Z"/>
+    <path d="m3 8 9 5.2L21 8M12 13.2V21"/>
+  </symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="4.2"/>
+    <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"/>
+  </symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24">
+    <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/>
+  </symbol>
+  <symbol id="i-external" viewBox="0 0 24 24">
+    <path d="M7 17 17 7M9 7h8v8"/>
+  </symbol>
+</svg>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#top" aria-label="fellow99 — back to top">
+      <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+      <span class="brand-name">fellow99</span>
+    </a>
+
+    <nav class="nav" aria-label="Sections">
+      <a href="#projects" data-nav>Projects</a>
+      <a href="#stack" data-nav>Stack</a>
+      <a href="#about" data-nav>About</a>
+    </nav>
+
+    <div class="controls">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <a class="lang is-active" href="index.html" hreflang="en" aria-current="page">EN</a>
+        <span class="lang-sep" aria-hidden="true">/</span>
+        <a class="lang" href="index_zh.html" hreflang="zh-CN">中文</a>
+      </div>
+
+      <button class="theme-toggle" id="themeToggle" type="button"
+              aria-label="Switch to dark theme"
+              data-label-dark="Switch to dark theme"
+              data-label-light="Switch to light theme">
+        <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
+        <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow reveal">$ whoami</p>
+      <h1 class="hero-title reveal">fellow99</h1>
+      <p class="hero-role reveal">Full-stack builder shipping AI-native tools across desktop, web &amp; mobile</p>
+      <p class="hero-lede reveal">
+        I design, build and ship open-source products that put AI agents to work — from Electron and
+        HarmonyOS desktops to a five-platform business framework, an LLM gateway, a reusable skills
+        library and a 3D scene editor. Agents write the first draft; I own the architecture, review
+        and release.
+      </p>
+
+      <div class="hero-actions reveal">
+        <a class="btn btn-primary" href="https://github.com/fellow99" target="_blank" rel="noopener">
+          GitHub
+          <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>
+        </a>
+        <a class="btn btn-ghost" href="#projects">Browse projects</a>
+      </div>
+
+      <ul class="stat-strip reveal">
+        <li><span class="stat-num">6</span><span class="stat-label">open-source projects</span></li>
+        <li><span class="stat-num">5</span><span class="stat-label">platform targets</span></li>
+        <li><span class="stat-num">100%</span><span class="stat-label">AI-native workflow</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">$ ls -1 projects/</p>
+        <h2 class="section-title">Projects</h2>
+        <p class="section-lede">Six independent, open-source projects — each one live, and each one a doorway.</p>
+      </header>
+
+      <div class="project-grid">
+
+        <a class="project-card reveal" href="https://fellow99.github.io/deepseek-harness-desktop-website/" target="_blank" rel="noopener">
+          <div class="card-top">
+            <span class="card-index">01</span>
+            <svg class="card-icon icon" aria-hidden="true"><use href="#i-desktop"></use></svg>
+          </div>
+          <h3 class="card-title">DeepSeek Harness Desktop</h3>
+          <p class="card-desc">
+            Run DeepSeek Harness, the open-source AI agent harness, as a native desktop app. An
+            Electron shell covers Windows, Linux and macOS, plus a HarmonyOS 2in1 / tablet port —
+            reusing the official web UI with zero upstream changes.
+          </p>
+          <ul class="card-tags">
+            <li>Electron</li><li>HarmonyOS</li><li>ArkTS</li><li>Node.js</li>
+          </ul>
+          <span class="card-link">Visit site <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+        </a>
+
+        <a class="project-card reveal" href="https://fellow99.github.io/tpl-website/" target="_blank" rel="noopener">
+          <div class="card-top">
+            <span class="card-index">02</span>
+            <svg class="card-icon icon" aria-hidden="true"><use href="#i-layers"></use></svg>
+          </div>
+          <h3 class="card-title">TPL Framework</h3>
+          <p class="card-desc">
+            One skeleton, five platforms. A multi-platform business application framework spanning
+            web, Android, HarmonyOS and WeChat mini program plus an admin console — with a unified
+            project structure, shared design tokens and dual backends.
+          </p>
+          <ul class="card-tags">
+            <li>Vue 3</li><li>Spring Boot</li><li>Kotlin</li><li>ArkTS</li>
+          </ul>
+          <span class="card-link">Visit site <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+        </a>
+
+        <a class="project-card reveal" href="https://fellow99.github.io/fellow99-skills/" target="_blank" rel="noopener">
+          <div class="card-top">
+            <span class="card-index">03</span>
+            <svg class="card-icon icon" aria-hidden="true"><use href="#i-spark"></use></svg>
+          </div>
+          <h3 class="card-title">fellow99 Skills</h3>
+          <p class="card-desc">
+            A reusable library of AI agent skills: HarmonyOS development and on-device testing,
+            mini-program automation and CI, image generation, code-graph navigation and
+            spec-driven development flows.
+          </p>
+          <ul class="card-tags">
+            <li>OpenCode</li><li>Claude Code</li><li>Node.js</li>
+          </ul>
+          <span class="card-link">Visit site <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+        </a>
+
+        <a class="project-card reveal" href="https://fellow99.github.io/llm-router/" target="_blank" rel="noopener">
+          <div class="card-top">
+            <span class="card-index">04</span>
+            <svg class="card-icon icon" aria-hidden="true"><use href="#i-route"></use></svg>
+          </div>
+          <h3 class="card-title">LLM Router</h3>
+          <p class="card-desc">
+            An OpenAI-compatible gateway that aggregates many model providers behind a single
+            endpoint: prefix-based routing, model aliases, weighted load balancing and automatic
+            failover — with streaming and structured logs.
+          </p>
+          <ul class="card-tags">
+            <li>TypeScript</li><li>Express</li><li>Proxy</li>
+          </ul>
+          <span class="card-link">Visit site <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+        </a>
+
+        <a class="project-card reveal" href="https://fellow99.github.io/games-index/" target="_blank" rel="noopener">
+          <div class="card-top">
+            <span class="card-index">05</span>
+            <svg class="card-icon icon" aria-hidden="true"><use href="#i-gamepad"></use></svg>
+          </div>
+          <h3 class="card-title">Games Index</h3>
+          <p class="card-desc">
+            A zero-dependency arcade of browser games — an AI-generated visual novel, a vertical
+            shoot-'em-up and minesweeper — hand-built with plain HTML, CSS and JavaScript.
+            Click and play.
+          </p>
+          <ul class="card-tags">
+            <li>HTML5</li><li>Canvas</li><li>Vanilla JS</li>
+          </ul>
+          <span class="card-link">Visit site <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+        </a>
+
+        <a class="project-card reveal" href="https://fellow99.github.io/three-editor-by-ai/" target="_blank" rel="noopener">
+          <div class="card-top">
+            <span class="card-index">06</span>
+            <svg class="card-icon icon" aria-hidden="true"><use href="#i-cube"></use></svg>
+          </div>
+          <h3 class="card-title">Three Editor by AI</h3>
+          <p class="card-desc">
+            A 3D scene editor written entirely by AI. Built with Vue 3 and Three.js: object
+            transforms, materials and lights, animation playback, GLTF / OBJ / FBX import and a
+            virtual file system for assets.
+          </p>
+          <ul class="card-tags">
+            <li>Vue 3</li><li>Three.js</li><li>WebGL</li>
+          </ul>
+          <span class="card-link">Visit site <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="stack">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">$ cat stack.txt</p>
+        <h2 class="section-title">Stack</h2>
+        <p class="section-lede">The tools I reach for when turning an idea into something that ships.</p>
+      </header>
+
+      <div class="stack-grid">
+        <div class="stack-group reveal">
+          <h3 class="stack-title">Languages</h3>
+          <ul class="chips"><li>TypeScript</li><li>JavaScript</li><li>Java</li><li>Kotlin</li><li>ArkTS</li><li>HTML / CSS</li></ul>
+        </div>
+        <div class="stack-group reveal">
+          <h3 class="stack-title">Frontend</h3>
+          <ul class="chips"><li>Vue 3</li><li>Three.js</li><li>Vite</li><li>Element Plus</li></ul>
+        </div>
+        <div class="stack-group reveal">
+          <h3 class="stack-title">Backend &amp; Data</h3>
+          <ul class="chips"><li>Node.js</li><li>Express</li><li>Spring Boot</li><li>PostgreSQL</li><li>Redis</li></ul>
+        </div>
+        <div class="stack-group reveal">
+          <h3 class="stack-title">Platforms</h3>
+          <ul class="chips"><li>Electron</li><li>HarmonyOS / ArkUI</li><li>Android</li><li>WeChat Mini Program</li><li>Docker</li></ul>
+        </div>
+        <div class="stack-group reveal">
+          <h3 class="stack-title">AI &amp; Tooling</h3>
+          <ul class="chips"><li>DeepSeek Harness</li><li>OpenCode</li><li>Git</li><li>GitHub Actions</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container about-grid">
+      <div class="about-copy reveal">
+        <p class="eyebrow">$ man fellow99</p>
+        <h2 class="section-title">About</h2>
+        <p>
+          I'm fellow99 — an independent full-stack developer who builds with AI, end to end. Most of
+          my projects start as an idea plus an agent, then get shaped into shipped, cross-platform
+          open-source tools: desktop shells, multi-platform frameworks, model gateways and creative
+          editors.
+        </p>
+        <p>
+          I care about clean architecture, honest documentation and things that run offline when they
+          can. Everything here is MIT-licensed and built in the open.
+        </p>
+      </div>
+
+      <ul class="fact-list reveal">
+        <li>
+          <span class="fact-mark" aria-hidden="true">01</span>
+          <span class="fact-text">Ships across five targets: Windows / Linux / macOS, HarmonyOS, Android, WeChat mini program and the web.</span>
+        </li>
+        <li>
+          <span class="fact-mark" aria-hidden="true">02</span>
+          <span class="fact-text">AI-native workflow — agents draft the code, I own architecture, review and release.</span>
+        </li>
+        <li>
+          <span class="fact-mark" aria-hidden="true">03</span>
+          <span class="fact-text">Open source first: every project is public and MIT-licensed.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+      <span>fellow99</span>
+    </div>
+    <p class="footer-note">Built with plain HTML, CSS &amp; JavaScript — no frameworks, no trackers.</p>
+    <div class="footer-meta">
+      <span>© <span data-year>2026</span> fellow99</span>
+      <span class="footer-dot" aria-hidden="true">·</span>
+      <a href="https://github.com/fellow99" target="_blank" rel="noopener">GitHub</a>
+      <span class="footer-dot" aria-hidden="true">·</span>
+      <a href="index_zh.html" hreflang="zh-CN">中文</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="fellow99 —— 独立全栈开发者，用 AI 打造跨桌面、Web 与移动端的开源工具。">
+<title>fellow99 — 用 AI 造物</title>
+<script>
+  (function () {
+    var root = document.documentElement;
+    try {
+      var t = localStorage.getItem('fellow99-theme');
+      if (t !== 'light' && t !== 'dark') {
+        t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+      }
+      root.setAttribute('data-theme', t);
+      root.classList.add('js');
+      // Failsafe: if the deferred site script never runs, reveal all content.
+      window.setTimeout(function () {
+        if (!window.__fellow99Ready) root.classList.remove('js');
+      }, 2000);
+    } catch (e) { /* no-op: CSS default theme still applies */ }
+  })();
+</script>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<svg class="svg-sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-desktop" viewBox="0 0 24 24">
+    <rect x="2.5" y="4" width="19" height="13" rx="2"/>
+    <path d="M8.5 21h7M12 17v4"/>
+  </symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24">
+    <path d="m12 3 9 5-9 5-9-5 9-5Z"/>
+    <path d="m3 12.5 9 5 9-5"/>
+    <path d="m3 16.5 9 5 9-5"/>
+  </symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24">
+    <path d="M11 3.5 12.5 8.5 17.5 10 12.5 11.5 11 16.5 9.5 11.5 4.5 10 9.5 8.5 11 3.5Z"/>
+    <path d="M18 15.2 18.8 17.7 21.3 18.5 18.8 19.3 18 21.8 17.2 19.3 14.7 18.5 17.2 17.7 18 15.2Z"/>
+  </symbol>
+  <symbol id="i-route" viewBox="0 0 24 24">
+    <circle cx="6" cy="6" r="2.5"/>
+    <circle cx="6" cy="18" r="2.5"/>
+    <circle cx="18" cy="12" r="2.5"/>
+    <path d="M8.5 6H13a3 3 0 0 1 3 3v.5M8.5 18H13a3 3 0 0 0 3-3v-.5"/>
+  </symbol>
+  <symbol id="i-gamepad" viewBox="0 0 24 24">
+    <path d="M8 7h8a5.5 5.5 0 0 1 5.5 5.5A3.5 3.5 0 0 1 15.2 14L14 12.5h-4L8.8 14A3.5 3.5 0 0 1 2.5 12.5 5.5 5.5 0 0 1 8 7Z"/>
+    <path d="M7 10.2v2.6M5.7 11.5h2.6M16.4 10.6h.01M18 12.2h.01"/>
+  </symbol>
+  <symbol id="i-cube" viewBox="0 0 24 24">
+    <path d="M12 2.8 21 8v8l-9 5.2L3 16V8l9-5.2Z"/>
+    <path d="m3 8 9 5.2L21 8M12 13.2V21"/>
+  </symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="4.2"/>
+    <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"/>
+  </symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24">
+    <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/>
+  </symbol>
+  <symbol id="i-external" viewBox="0 0 24 24">
+    <path d="M7 17 17 7M9 7h8v8"/>
+  </symbol>
+</svg>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#top" aria-label="fellow99 —— 返回顶部">
+      <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+      <span class="brand-name">fellow99</span>
+    </a>
+
+    <nav class="nav" aria-label="页面分区">
+      <a href="#projects" data-nav>项目</a>
+      <a href="#stack" data-nav>技术栈</a>
+      <a href="#about" data-nav>关于</a>
+    </nav>
+
+    <div class="controls">
+      <div class="lang-switch" role="group" aria-label="语言">
+        <a class="lang" href="index.html" hreflang="en">EN</a>
+        <span class="lang-sep" aria-hidden="true">/</span>
+        <a class="lang is-active" href="index_zh.html" hreflang="zh-CN" aria-current="page">中文</a>
+      </div>
+
+      <button class="theme-toggle" id="themeToggle" type="button"
+              aria-label="切换到暗色主题"
+              data-label-dark="切换到暗色主题"
+              data-label-light="切换到亮色主题">
+        <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
+        <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow reveal">$ whoami</p>
+      <h1 class="hero-title reveal">fellow99</h1>
+      <p class="hero-role reveal">全栈开发者 · 用 AI 打造跨桌面、Web 与移动端的工具</p>
+      <p class="hero-lede reveal">
+        我设计、开发并发布把 AI Agent 真正用起来的开源产品——从 Electron 与 HarmonyOS 桌面端，
+        到贯通五端的业务框架、大模型网关、可复用技能库与 3D 场景编辑器。Agent 负责初稿，
+        我来把握架构、评审与发布。
+      </p>
+
+      <div class="hero-actions reveal">
+        <a class="btn btn-primary" href="https://github.com/fellow99" target="_blank" rel="noopener">
+          GitHub
+          <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>
+        </a>
+        <a class="btn btn-ghost" href="#projects">浏览项目</a>
+      </div>
+
+      <ul class="stat-strip reveal">
+        <li><span class="stat-num">6</span><span class="stat-label">个开源项目</span></li>
+        <li><span class="stat-num">5</span><span class="stat-label">个平台目标</span></li>
+        <li><span class="stat-num">100%</span><span class="stat-label">AI 原生工作流</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">$ ls -1 projects/</p>
+        <h2 class="section-title">项目</h2>
+        <p class="section-lede">六个独立开源项目——每一个都已上线，每一个都是一扇门。</p>
+      </header>
+
+      <div class="project-grid">
+
+        <a class="project-card reveal" href="https://fellow99.github.io/deepseek-harness-desktop-website/" target="_blank" rel="noopener">
+          <div class="card-top">
+            <span class="card-index">01</span>
+            <svg class="card-icon icon" aria-hidden="true"><use href="#i-desktop"></use></svg>
+          </div>
+          <h3 class="card-title">DeepSeek Harness 桌面版</h3>
+          <p class="card-desc">
+            把开源 AI Agent 运行环境 DeepSeek Harness 装进桌面。Electron 外壳覆盖 Windows、Linux 与
+            macOS，并移植到 HarmonyOS 2in1 / 平板——复用官方 Web UI，零上游改动。
+          </p>
+          <ul class="card-tags">
+            <li>Electron</li><li>HarmonyOS</li><li>ArkTS</li><li>Node.js</li>
+          </ul>
+          <span class="card-link">进入站点 <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+        </a>
+
+        <a class="project-card reveal" href="https://fellow99.github.io/tpl-website/" target="_blank" rel="noopener">
+          <div class="card-top">
+            <span class="card-index">02</span>
+            <svg class="card-icon icon" aria-hidden="true"><use href="#i-layers"></use></svg>
+          </div>
+          <h3 class="card-title">TPL 多端框架</h3>
+          <p class="card-desc">
+            一套骨架，贯通五端。多端业务应用框架，覆盖 Web、Android、HarmonyOS、微信小程序与管理后台——
+            统一工程结构、共享设计令牌与双后端服务。
+          </p>
+          <ul class="card-tags">
+            <li>Vue 3</li><li>Spring Boot</li><li>Kotlin</li><li>ArkTS</li>
+          </ul>
+          <span class="card-link">进入站点 <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+        </a>
+
+        <a class="project-card reveal" href="https://fellow99.github.io/fellow99-skills/" target="_blank" rel="noopener">
+          <div class="card-top">
+            <span class="card-index">03</span>
+            <svg class="card-icon icon" aria-hidden="true"><use href="#i-spark"></use></svg>
+          </div>
+          <h3 class="card-title">fellow99 技能集</h3>
+          <p class="card-desc">
+            可复用的 AI Agent 技能库：HarmonyOS 开发与真机测试、小程序自动化与 CI、图像生成、
+            代码知识图谱导航与规范驱动开发流程。
+          </p>
+          <ul class="card-tags">
+            <li>OpenCode</li><li>Claude Code</li><li>Node.js</li>
+          </ul>
+          <span class="card-link">进入站点 <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+        </a>
+
+        <a class="project-card reveal" href="https://fellow99.github.io/llm-router/" target="_blank" rel="noopener">
+          <div class="card-top">
+            <span class="card-index">04</span>
+            <svg class="card-icon icon" aria-hidden="true"><use href="#i-route"></use></svg>
+          </div>
+          <h3 class="card-title">LLM Router 大模型路由</h3>
+          <p class="card-desc">
+            OpenAI 兼容网关，用一个端点聚合多家模型服务：前缀路由、模型别名、加权负载均衡与
+            故障自动回退，支持流式响应与结构化日志。
+          </p>
+          <ul class="card-tags">
+            <li>TypeScript</li><li>Express</li><li>Proxy</li>
+          </ul>
+          <span class="card-link">进入站点 <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+        </a>
+
+        <a class="project-card reveal" href="https://fellow99.github.io/games-index/" target="_blank" rel="noopener">
+          <div class="card-top">
+            <span class="card-index">05</span>
+            <svg class="card-icon icon" aria-hidden="true"><use href="#i-gamepad"></use></svg>
+          </div>
+          <h3 class="card-title">游戏索引</h3>
+          <p class="card-desc">
+            零依赖的浏览器游戏合集：AI 生成的视觉小说、竖版打飞机与扫雷——全部用原生 HTML、CSS 与
+            JavaScript 手写。即点即玩。
+          </p>
+          <ul class="card-tags">
+            <li>HTML5</li><li>Canvas</li><li>Vanilla JS</li>
+          </ul>
+          <span class="card-link">进入站点 <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+        </a>
+
+        <a class="project-card reveal" href="https://fellow99.github.io/three-editor-by-ai/" target="_blank" rel="noopener">
+          <div class="card-top">
+            <span class="card-index">06</span>
+            <svg class="card-icon icon" aria-hidden="true"><use href="#i-cube"></use></svg>
+          </div>
+          <h3 class="card-title">Three Editor by AI</h3>
+          <p class="card-desc">
+            全程由 AI 编写代码的 3D 场景编辑器。基于 Vue 3 与 Three.js：对象变换、材质与灯光、
+            动画播放、GLTF / OBJ / FBX 导入以及虚拟文件系统。
+          </p>
+          <ul class="card-tags">
+            <li>Vue 3</li><li>Three.js</li><li>WebGL</li>
+          </ul>
+          <span class="card-link">进入站点 <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="stack">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">$ cat stack.txt</p>
+        <h2 class="section-title">技术栈</h2>
+        <p class="section-lede">把想法变成可交付产品时，我会用到的工具。</p>
+      </header>
+
+      <div class="stack-grid">
+        <div class="stack-group reveal">
+          <h3 class="stack-title">语言</h3>
+          <ul class="chips"><li>TypeScript</li><li>JavaScript</li><li>Java</li><li>Kotlin</li><li>ArkTS</li><li>HTML / CSS</li></ul>
+        </div>
+        <div class="stack-group reveal">
+          <h3 class="stack-title">前端</h3>
+          <ul class="chips"><li>Vue 3</li><li>Three.js</li><li>Vite</li><li>Element Plus</li></ul>
+        </div>
+        <div class="stack-group reveal">
+          <h3 class="stack-title">后端与数据</h3>
+          <ul class="chips"><li>Node.js</li><li>Express</li><li>Spring Boot</li><li>PostgreSQL</li><li>Redis</li></ul>
+        </div>
+        <div class="stack-group reveal">
+          <h3 class="stack-title">平台</h3>
+          <ul class="chips"><li>Electron</li><li>HarmonyOS / ArkUI</li><li>Android</li><li>微信小程序</li><li>Docker</li></ul>
+        </div>
+        <div class="stack-group reveal">
+          <h3 class="stack-title">AI 与工具</h3>
+          <ul class="chips"><li>DeepSeek Harness</li><li>OpenCode</li><li>Git</li><li>GitHub Actions</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container about-grid">
+      <div class="about-copy reveal">
+        <p class="eyebrow">$ man fellow99</p>
+        <h2 class="section-title">关于</h2>
+        <p>
+          我是 fellow99——一名独立全栈开发者，端到端地用 AI 造物。我的多数项目都始于一个想法加一个
+          Agent，然后被打磨成已交付的跨平台开源工具：桌面外壳、多端框架、模型网关与创作编辑器。
+        </p>
+        <p>
+          我在意干净的架构、诚实的文档，以及在可行时能够离线运行。这里的每个项目都以 MIT 协议开源，
+          全程公开构建。
+        </p>
+      </div>
+
+      <ul class="fact-list reveal">
+        <li>
+          <span class="fact-mark" aria-hidden="true">01</span>
+          <span class="fact-text">交付覆盖五个目标平台：Windows / Linux / macOS、HarmonyOS、Android、微信小程序与 Web。</span>
+        </li>
+        <li>
+          <span class="fact-mark" aria-hidden="true">02</span>
+          <span class="fact-text">AI 原生工作流——Agent 产出初稿，我负责架构、评审与发布。</span>
+        </li>
+        <li>
+          <span class="fact-mark" aria-hidden="true">03</span>
+          <span class="fact-text">开源优先：每个项目都公开且采用 MIT 协议。</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+      <span>fellow99</span>
+    </div>
+    <p class="footer-note">使用原生 HTML、CSS 与 JavaScript 构建——无框架，无追踪。</p>
+    <div class="footer-meta">
+      <span>© <span data-year>2026</span> fellow99</span>
+      <span class="footer-dot" aria-hidden="true">·</span>
+      <a href="https://github.com/fellow99" target="_blank" rel="noopener">GitHub</a>
+      <span class="footer-dot" aria-hidden="true">·</span>
+      <a href="index.html" hreflang="en">EN</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
