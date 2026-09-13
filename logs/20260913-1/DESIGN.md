@@ -21,7 +21,7 @@
 
 | 受众 | 关心什么 | 主页要回答 |
 |---|---|---|
-| 招聘/合作方 | 这个人是谁、能力边界 | Hero + About + Stack |
+| 招聘/合作方 | 这个人是谁、能力边界 | Hero + About（含邮箱） |
 | 同行开发者 | 有哪些可复用的开源项目 | 六张项目卡片 |
 | 偶然到访者 | 快速找到想玩的/想用的 | 卡片直达六个入口 |
 
@@ -55,12 +55,11 @@ CSS 变量驱动；两页共用同一 `localStorage['fellow99-theme']`，跳转�
 ## 5. 信息架构（两页结构完全一致）
 
 ```
-Header(sticky)  brand「fellow99」 · nav(Projects/Stack/About) · 语言 EN|中文 · 主题开关
+Header(sticky)  brand「fellow99」 · nav(Projects/About) · 语言 EN|中文 · 主题开关
 Hero            $ whoami · H1 fellow99 · 角色行 · lede · CTA(GitHub / Browse) · 3 项统计
 Projects        6 张项目卡片（响应式 3/2/1 列），编号 01–06、图标、标题、描述、标签、进入链接
-Stack           按层分组的技能标签：Language / Frontend / Backend / Platform / Tooling
-About           一段自述 + 事实清单（跨端、AI-native、开源）
-Footer          © 2026 fellow99 · MIT · GitHub · 语言互链
+About           一段自述 + 事实清单（跨端、AI-native、开源）+ 联系方式
+Footer          © 2026 fellow99 · MIT · GitHub · 邮箱 · 语言互链
 ```
 
 ## 6. 设计系统
