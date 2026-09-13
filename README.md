@@ -157,6 +157,7 @@ EN / ZH 必须**结构完全一致** —— 区块顺序、元素类名、交互
 
 ```
 fellow99.github.io/
+├── .github/workflows/pages.yml   # 部署到 GitHub Pages（见第八节）
 ├── index.html          # 英文版（lang="en"，含 head 内联防闪烁脚本）
 ├── index_zh.html       # 简体中文版（lang="zh-CN"），index.html 的 1:1 结构镜像
 ├── assets/
@@ -180,9 +181,26 @@ npx serve .                       # 然后访问 http://localhost:3000/
 # 或直接用浏览器打开 index.html（file:// 亦可）
 ```
 
-- 本站是 GitHub 用户主页（User Pages）：仓库根目录即站点根目录，推送 `main` 即发布到
-  <https://fellow99.github.io>。**无需 GitHub Actions 工作流**。
-- 语言互链、主题 token 与卡片链接均为相对/绝对静态地址，子路径部署不影响。
+### 部署（GitHub Pages）
+
+由 [`.github/workflows/pages.yml`](./.github/workflows/pages.yml) 自动发布到
+<https://fellow99.github.io/>：
+
+- **触发**：推送到 `main`，或 Actions 页手动 `workflow_dispatch`。
+- **权限**：`contents: read` + `pages: write` + `id-token: write`（最小权限）。
+- **并发**：`group: pages`、`cancel-in-progress: true`（新构建取消旧构建）。
+- **产物口径**：先把站点文件复制到 `site/`（`index.html`、`index_zh.html`、`assets/`）再上传，
+  因此 **README / LICENSE / logs 不会被发布**；站点为纯静态，无 build 步骤。
+- **官方 Actions**：`actions/checkout@v4` → `actions/configure-pages@v5` →
+  `actions/upload-pages-artifact@v3`（`path: site`）→ `actions/deploy-pages@v4`。
+
+> **一次性设置**：仓库 **Settings → Pages → Build and deployment → Source = "GitHub Actions"**。
+> 本仓库是用户主页（User Pages），根路径即为站点根；若仍保留 "Deploy from a branch"，
+> 请改为 "GitHub Actions"，否则二者会冲突。
+
+- 语言互链、主题 token 与卡片链接均为相对/绝对静态地址，不影响部署。
+- 文档同步：改文案/结构后按第九节清单同时更新两个语言页面。
+
 
 ---
 

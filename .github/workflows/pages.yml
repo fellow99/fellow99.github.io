@@ -1,0 +1,65 @@
+# ============================================================
+# fellow99.github.io — 个人主页 → GitHub Pages 部署
+# 发布目标：https://fellow99.github.io/   （用户主页 / User Page）
+#
+# 说明：
+#   - 站点为纯静态、零依赖（index.html / index_zh.html / assets/），无构建步骤。
+#   - 仅把站点文件复制到 site/ 后上传，避免把 README / LICENSE / logs/ 一并发布。
+#   - 使用官方 actions/configure-pages + upload-pages-artifact + deploy-pages。
+#   - 一次性设置：本仓库 Settings → Pages → Build and deployment → Source: GitHub Actions。
+#
+# 触发：推送到 main / 手动触发
+# ============================================================
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# 仅授予 Pages 部署所需的最小权限
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同一时间只跑一次；push 触发的新构建会取消运行中的旧构建
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 只挑选站点静态资源到独立产物目录（不含 README / LICENSE / logs）
+      - name: Stage static site
+        run: |
+          mkdir -p site
+          cp index.html index_zh.html site/
+          cp -r assets site/
+          echo "---- site/ contents ----"
+          find site -type f | sort
+
+      # 启用 GitHub Pages 并获取部署端点
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      # 上传静态站点产物
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      # 部署到 GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
