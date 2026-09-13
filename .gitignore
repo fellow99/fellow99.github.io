@@ -1,0 +1,9 @@
+# Local agent / tooling state — not part of the published site
+.omo/
+.codegraph/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
