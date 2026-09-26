@@ -5,7 +5,7 @@
 > 线上地址：<https://fellow99.github.io>
 >
 > 本文件同时作为本站的 **设计文档（Design Record）**：记录定位、信息架构、文案矩阵、
-> 设计系统、交互与实现约定。与兄弟站点 [deepseek-harness-desktop-website] 与
+> 设计系统、交互与实现约定。与兄弟站点 [dsh-desktop-website] 与
 > [tpl-website] 保持同一套「双页镜像 + 纯原生 + 双主题」的工程约定。
 
 ---
@@ -36,7 +36,7 @@
 
 | # | 入口 URL | 相关工程 | 定位 | 技术标签 |
 |---|---|---|---|---|
-| 01 | `/deepseek-harness-desktop-website/` | `d:\deepseek-harness-workspace` | 把开源 AI Agent 运行环境 DeepSeek Harness 装进桌面：Electron 覆盖 Windows/Linux/macOS，并移植到 HarmonyOS 2in1/平板，复用官方 Web UI、零上游改动 | Electron · HarmonyOS · ArkTS · Node.js |
+| 01 | `/dsh-desktop-website/` | `d:\deepseek-harness-workspace` | 把开源 AI Agent 运行环境 DeepSeek Harness 装进桌面：Electron 覆盖 Windows/Linux/macOS，并移植到 HarmonyOS 2in1/平板，复用官方 Web UI、零上游改动 | Electron · HarmonyOS · ArkTS · Node.js |
 | 02 | `/tpl-website/` | `d:\tpl-workspace` | 多端业务应用框架「一套骨架，贯通五端」：Web / Android / HarmonyOS / 微信小程序 + 管理后台，统一工程结构与双后端 | Vue 3 · Spring Boot · Kotlin · ArkTS |
 | 03 | `/fellow99-skills/` | `d:\GitHub\fellow99\fellow99-skills` | 可复用的 AI Agent 技能集：HarmonyOS 开发与真机测试、小程序自动化与 CI、图像生成、代码知识图谱导航、规范驱动开发 | OpenCode · Claude Code · Node.js |
 | 04 | `/llm-router/` | `d:\GitHub\fellow99\llm-router` | OpenAI 兼容的多模型聚合路由网关：前缀路由、模型别名、加权负载均衡、故障回退、流式响应 | TypeScript · Express · Proxy |
@@ -218,5 +218,5 @@ npx serve .                       # 然后访问 http://localhost:3000/
 
 [MIT](./LICENSE) © 2026 fellow99
 
-[deepseek-harness-desktop-website]: https://fellow99.github.io/deepseek-harness-desktop-website/
+[dsh-desktop-website]: https://fellow99.github.io/dsh-desktop-website/
 [tpl-website]: https://fellow99.github.io/tpl-website/
