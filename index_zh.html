@@ -55,6 +55,15 @@
     <path d="M12 2.8 21 8v8l-9 5.2L3 16V8l9-5.2Z"/>
     <path d="m3 8 9 5.2L21 8M12 13.2V21"/>
   </symbol>
+  <symbol id="i-blocks" viewBox="0 0 24 24">
+    <rect x="3" y="3" width="7.6" height="7.6" rx="1.9"/>
+    <rect x="13.4" y="3" width="7.6" height="7.6" rx="1.9"/>
+    <rect x="3" y="13.4" width="7.6" height="7.6" rx="1.9"/>
+    <path d="M17.2 13.6v7.2M13.6 17.2h7.2"/>
+  </symbol>
+  <symbol id="i-github" viewBox="0 0 24 24">
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  </symbol>
   <symbol id="i-sun" viewBox="0 0 24 24">
     <circle cx="12" cy="12" r="4.2"/>
     <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"/>
@@ -105,9 +114,9 @@
       <h1 class="hero-title reveal">fellow99</h1>
       <p class="hero-role reveal">全栈开发者 · 用 AI 打造跨桌面、Web 与移动端的工具</p>
       <p class="hero-lede reveal">
-        我设计、开发并发布把 AI Agent 真正用起来的开源产品——从 Electron 与 HarmonyOS 桌面端，
-        到贯通五端的业务框架、大模型网关、可复用技能库与 3D 场景编辑器。Agent 负责初稿，
-        我来把握架构、评审与发布。
+        我设计、开发并发布把 AI Agent 真正用起来的开源产品——三款 Agent 运行环境的原生桌面外壳、
+        贯通五端的业务框架、OpenAI 兼容的大模型网关、可复用技能库、低代码企业平台、3D 场景编辑器，
+        以及一个轻量游戏合集。Agent 负责初稿，我来把握架构、评审与发布。
       </p>
 
       <div class="hero-actions reveal">
@@ -119,8 +128,8 @@
       </div>
 
       <ul class="stat-strip reveal">
-        <li><span class="stat-num">6</span><span class="stat-label">个开源项目</span></li>
-        <li><span class="stat-num">5</span><span class="stat-label">个平台目标</span></li>
+        <li><span class="stat-num">9</span><span class="stat-label">个开源项目</span></li>
+        <li><span class="stat-num">7</span><span class="stat-label">个平台目标</span></li>
         <li><span class="stat-num">100%</span><span class="stat-label">AI 原生工作流</span></li>
       </ul>
     </div>
@@ -131,7 +140,7 @@
       <header class="section-head reveal">
         <p class="eyebrow">$ ls -1 projects/</p>
         <h2 class="section-title">项目</h2>
-        <p class="section-lede">六个独立开源项目——每一个都已上线，每一个都是一扇门。</p>
+        <p class="section-lede">九个独立开源项目——八个有线上站点，一个在 GitHub。每一个都是一扇门。</p>
       </header>
 
       <div class="project-grid">
@@ -139,28 +148,69 @@
         <a class="project-card reveal" href="https://fellow99.github.io/dsh-desktop-website/" target="_blank" rel="noopener">
           <div class="card-top">
             <span class="card-index">01</span>
-            <svg class="card-icon icon" aria-hidden="true"><use href="#i-desktop"></use></svg>
+            <span class="card-icon card-icon-logo">
+              <img src="assets/logos/dsh-desktop.svg" alt="" width="22" height="22">
+            </span>
           </div>
           <h3 class="card-title">DSH Desktop</h3>
           <p class="card-desc">
-            把开源 AI Agent 运行环境 DeepSeek Harness 装进桌面。Electron 外壳覆盖 Windows、Linux 与
-            macOS，并移植到 HarmonyOS 2in1 / 平板——复用官方 Web UI，零上游改动。
+            把开源 AI Agent 运行环境 DeepSeek Harness 装进桌面。官方 dsh Web UI 原样运行在 Electron
+            外壳中，覆盖 Windows、Linux 与 macOS——本地进程内宿主、系统托盘与原生通知——另有插件市场
+            与 HarmonyOS 版本。
           </p>
           <ul class="card-tags">
-            <li>Electron</li><li>HarmonyOS</li><li>ArkTS</li><li>Node.js</li>
+            <li>Electron</li><li>DeepSeek Harness</li><li>HarmonyOS</li>
+          </ul>
+          <span class="card-link">进入站点 <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+        </a>
+
+        <a class="project-card reveal" href="https://fellow99.github.io/pi-desktop-website/" target="_blank" rel="noopener">
+          <div class="card-top">
+            <span class="card-index">02</span>
+            <span class="card-icon card-icon-logo">
+              <img src="assets/logos/pi-desktop.svg" alt="" width="22" height="22">
+            </span>
+          </div>
+          <h3 class="card-title">Pi Desktop</h3>
+          <p class="card-desc">
+            Pi Agent 运行环境的 Electron 外壳——上游 Pi 与 Pi Web 100% 原样，零上游改动。Next.js
+            服务跑在应用主进程内，因此你现有的 <code>~/.pi</code> 会话、凭据与扩展都能直接沿用。
+            覆盖 Windows、macOS、Linux 与 HarmonyOS。
+          </p>
+          <ul class="card-tags">
+            <li>Electron</li><li>Next.js</li><li>Pi harness</li><li>HarmonyOS</li>
+          </ul>
+          <span class="card-link">进入站点 <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+        </a>
+
+        <a class="project-card reveal" href="https://fellow99.github.io/oc-desktop-website/" target="_blank" rel="noopener">
+          <div class="card-top">
+            <span class="card-index">03</span>
+            <span class="card-icon card-icon-logo">
+              <img src="assets/logos/oc-desktop.svg" alt="" width="22" height="22">
+            </span>
+          </div>
+          <h3 class="card-title">OC Desktop</h3>
+          <p class="card-desc">
+            opencode 的桌面形态。Windows、Linux 与 macOS 使用官方上游 opencode 发行版；HarmonyOS
+            2in1 / 平板由本项目以第三方移植提供——在缺少 PTY 的平台上改用纯 JavaScript 工具实现，
+            并支持端侧会话持久化与签名 HAP。
+          </p>
+          <ul class="card-tags">
+            <li>Electron</li><li>opencode</li><li>HarmonyOS</li>
           </ul>
           <span class="card-link">进入站点 <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
         </a>
 
         <a class="project-card reveal" href="https://fellow99.github.io/tpl-website/" target="_blank" rel="noopener">
           <div class="card-top">
-            <span class="card-index">02</span>
+            <span class="card-index">04</span>
             <svg class="card-icon icon" aria-hidden="true"><use href="#i-layers"></use></svg>
           </div>
           <h3 class="card-title">TPL 多端框架</h3>
           <p class="card-desc">
-            一套骨架，贯通五端。多端业务应用框架，覆盖 Web、Android、HarmonyOS、微信小程序与管理后台——
-            统一工程结构、共享设计令牌与双后端服务。
+            一套骨架，贯通五端。覆盖 Web、Android、HarmonyOS、微信小程序与管理后台的业务应用框架——
+            统一工程结构、共享设计令牌、三语 i18n、亮暗主题，以及双后端服务。
           </p>
           <ul class="card-tags">
             <li>Vue 3</li><li>Spring Boot</li><li>Kotlin</li><li>ArkTS</li>
@@ -170,13 +220,14 @@
 
         <a class="project-card reveal" href="https://fellow99.github.io/fellow99-skills/" target="_blank" rel="noopener">
           <div class="card-top">
-            <span class="card-index">03</span>
+            <span class="card-index">05</span>
             <svg class="card-icon icon" aria-hidden="true"><use href="#i-spark"></use></svg>
           </div>
           <h3 class="card-title">fellow99 技能集</h3>
           <p class="card-desc">
-            可复用的 AI Agent 技能库：HarmonyOS 开发与真机测试、小程序自动化与 CI、图像生成、
-            代码知识图谱导航与规范驱动开发流程。
+            十一个可复用的 AI Agent 技能：HarmonyOS 开发与 hdc 真机测试、微信小程序自动化与 CI、
+            规范驱动开发流程、as-built 规格反写、代码知识图谱导航与图像生成——可直接用于 OpenCode
+            与 Claude Code。
           </p>
           <ul class="card-tags">
             <li>OpenCode</li><li>Claude Code</li><li>Node.js</li>
@@ -186,13 +237,13 @@
 
         <a class="project-card reveal" href="https://fellow99.github.io/llm-router/" target="_blank" rel="noopener">
           <div class="card-top">
-            <span class="card-index">04</span>
+            <span class="card-index">06</span>
             <svg class="card-icon icon" aria-hidden="true"><use href="#i-route"></use></svg>
           </div>
           <h3 class="card-title">LLM Router 大模型路由</h3>
           <p class="card-desc">
-            OpenAI 兼容网关，用一个端点聚合多家模型服务：前缀路由、模型别名、加权负载均衡与
-            故障自动回退，支持流式响应与结构化日志。
+            OpenAI 兼容网关，用一个端点聚合多家模型服务：前缀路由、模型别名、加权负载均衡与自动
+            故障回退，支持 SSE 流式响应、客户端鉴权、JSON 结构化日志，并提供 Docker 镜像。
           </p>
           <ul class="card-tags">
             <li>TypeScript</li><li>Express</li><li>Proxy</li>
@@ -202,13 +253,13 @@
 
         <a class="project-card reveal" href="https://fellow99.github.io/games-index/" target="_blank" rel="noopener">
           <div class="card-top">
-            <span class="card-index">05</span>
+            <span class="card-index">07</span>
             <svg class="card-icon icon" aria-hidden="true"><use href="#i-gamepad"></use></svg>
           </div>
           <h3 class="card-title">游戏索引</h3>
           <p class="card-desc">
             零依赖的浏览器游戏合集：AI 生成的视觉小说、竖版打飞机与扫雷——全部用原生 HTML、CSS 与
-            JavaScript 手写。即点即玩。
+            JavaScript 手写，并会记住你的亮/暗主题选择。即点即玩。
           </p>
           <ul class="card-tags">
             <li>HTML5</li><li>Canvas</li><li>Vanilla JS</li>
@@ -218,18 +269,36 @@
 
         <a class="project-card reveal" href="https://fellow99.github.io/three-editor-by-ai/" target="_blank" rel="noopener">
           <div class="card-top">
-            <span class="card-index">06</span>
+            <span class="card-index">08</span>
             <svg class="card-icon icon" aria-hidden="true"><use href="#i-cube"></use></svg>
           </div>
           <h3 class="card-title">Three Editor by AI</h3>
           <p class="card-desc">
-            全程由 AI 编写代码的 3D 场景编辑器。基于 Vue 3 与 Three.js：对象变换、材质与灯光、
-            动画播放、GLTF / OBJ / FBX 导入以及虚拟文件系统。
+            由 AI 编写代码的浏览器 3D 场景编辑器。基于 Vue 3 与 Three.js：变换操作柄与撤销重做、
+            PBR 材质、五种灯光、GLTF 动画播放、GLTF / OBJ / FBX 与 3D Tiles 导入、后期处理，
+            以及虚拟文件系统。
           </p>
           <ul class="card-tags">
             <li>Vue 3</li><li>Three.js</li><li>WebGL</li>
           </ul>
           <span class="card-link">进入站点 <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+        </a>
+
+        <a class="project-card reveal" href="https://github.com/fellow99/magic-ruoyi" target="_blank" rel="noopener">
+          <div class="card-top">
+            <span class="card-index">09</span>
+            <svg class="card-icon icon" aria-hidden="true"><use href="#i-blocks"></use></svg>
+          </div>
+          <h3 class="card-title">magic-ruoyi 魔法积木</h3>
+          <p class="card-desc">
+            把 RuoYi-Vue-Plus 与 magic-api 动态接口引擎合为一体的企业级快速开发平台：多租户与 RBAC
+            管理后台、浏览器内在线 API IDE、代码生成、系统监控与 OSS 存储，后端 Spring Boot 3、
+            前端 Vue 3。无在线演示，自行部署运行。
+          </p>
+          <ul class="card-tags">
+            <li>Spring Boot</li><li>Vue 3</li><li>magic-api</li><li>MyBatis-Plus</li>
+          </ul>
+          <span class="card-link">前往 GitHub <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg></span>
         </a>
 
       </div>
@@ -243,11 +312,12 @@
         <h2 class="section-title">关于</h2>
         <p>
           我是 fellow99——一名独立全栈开发者，端到端地用 AI 造物。我的多数项目都始于一个想法加一个
-          Agent，然后被打磨成已交付的跨平台开源工具：桌面外壳、多端框架、模型网关与创作编辑器。
+          Agent，然后被打磨成已交付的跨平台开源工具：Agent 运行环境的桌面外壳、多端框架、模型网关、
+          低代码平台与创作编辑器。
         </p>
         <p>
-          我在意干净的架构、诚实的文档，以及在可行时能够离线运行。这里的每个项目都以 MIT 协议开源，
-          全程公开构建。
+          我在意干净的架构、诚实的文档，以及在可行时能够离线运行。这里的每个项目都公开构建，
+          以 MIT 或 Apache-2.0 协议开源。
         </p>
         <p class="about-contact">
           联系我 — <a href="mailto:fellow99@163.com">fellow99@163.com</a>
@@ -257,7 +327,7 @@
       <ul class="fact-list reveal">
         <li>
           <span class="fact-mark" aria-hidden="true">01</span>
-          <span class="fact-text">交付覆盖五个目标平台：Windows / Linux / macOS、HarmonyOS、Android、微信小程序与 Web。</span>
+          <span class="fact-text">交付覆盖七个目标平台：Windows / Linux / macOS、HarmonyOS、Android、微信小程序与 Web。</span>
         </li>
         <li>
           <span class="fact-mark" aria-hidden="true">02</span>
@@ -265,7 +335,7 @@
         </li>
         <li>
           <span class="fact-mark" aria-hidden="true">03</span>
-          <span class="fact-text">开源优先：每个项目都公开且采用 MIT 协议。</span>
+          <span class="fact-text">开源优先：每个项目都公开——多数为 MIT，其中两个采用 Apache-2.0。</span>
         </li>
       </ul>
     </div>

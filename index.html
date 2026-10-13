@@ -55,6 +55,15 @@
     <path d="M12 2.8 21 8v8l-9 5.2L3 16V8l9-5.2Z"/>
     <path d="m3 8 9 5.2L21 8M12 13.2V21"/>
   </symbol>
+  <symbol id="i-blocks" viewBox="0 0 24 24">
+    <rect x="3" y="3" width="7.6" height="7.6" rx="1.9"/>
+    <rect x="13.4" y="3" width="7.6" height="7.6" rx="1.9"/>
+    <rect x="3" y="13.4" width="7.6" height="7.6" rx="1.9"/>
+    <path d="M17.2 13.6v7.2M13.6 17.2h7.2"/>
+  </symbol>
+  <symbol id="i-github" viewBox="0 0 24 24">
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  </symbol>
   <symbol id="i-sun" viewBox="0 0 24 24">
     <circle cx="12" cy="12" r="4.2"/>
     <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"/>
@@ -105,10 +114,10 @@
       <h1 class="hero-title reveal">fellow99</h1>
       <p class="hero-role reveal">Full-stack builder shipping AI-native tools across desktop, web &amp; mobile</p>
       <p class="hero-lede reveal">
-        I design, build and ship open-source products that put AI agents to work — from Electron and
-        HarmonyOS desktops to a five-platform business framework, an LLM gateway, a reusable skills
-        library and a 3D scene editor. Agents write the first draft; I own the architecture, review
-        and release.
+        I design, build and ship open-source products that put AI agents to work — three native desktop
+        shells for agent harnesses, a five-platform business framework, an OpenAI-compatible LLM
+        gateway, a reusable skills library, a low-code enterprise platform, a 3D scene editor and a
+        small arcade. Agents write the first draft; I own the architecture, review and release.
       </p>
 
       <div class="hero-actions reveal">
@@ -120,8 +129,8 @@
       </div>
 
       <ul class="stat-strip reveal">
-        <li><span class="stat-num">6</span><span class="stat-label">open-source projects</span></li>
-        <li><span class="stat-num">5</span><span class="stat-label">platform targets</span></li>
+        <li><span class="stat-num">9</span><span class="stat-label">open-source projects</span></li>
+        <li><span class="stat-num">7</span><span class="stat-label">platform targets</span></li>
         <li><span class="stat-num">100%</span><span class="stat-label">AI-native workflow</span></li>
       </ul>
     </div>
@@ -132,7 +141,7 @@
       <header class="section-head reveal">
         <p class="eyebrow">$ ls -1 projects/</p>
         <h2 class="section-title">Projects</h2>
-        <p class="section-lede">Six independent, open-source projects — each one live, and each one a doorway.</p>
+        <p class="section-lede">Nine independent, open-source projects — eight with a live site, one on GitHub. Each one a doorway.</p>
       </header>
 
       <div class="project-grid">
@@ -140,30 +149,71 @@
         <a class="project-card reveal" href="https://fellow99.github.io/dsh-desktop-website/" target="_blank" rel="noopener">
           <div class="card-top">
             <span class="card-index">01</span>
-            <svg class="card-icon icon" aria-hidden="true"><use href="#i-desktop"></use></svg>
+            <span class="card-icon card-icon-logo">
+              <img src="assets/logos/dsh-desktop.svg" alt="" width="22" height="22">
+            </span>
           </div>
           <h3 class="card-title">DSH Desktop</h3>
           <p class="card-desc">
-            Run DeepSeek Harness, the open-source AI agent harness, as a native desktop app. An
-            Electron shell covers Windows, Linux and macOS, plus a HarmonyOS 2in1 / tablet port —
-            reusing the official web UI with zero upstream changes.
+            The open-source DeepSeek Harness agent as a native desktop app. The official dsh Web UI runs
+            unchanged inside an Electron shell on Windows, Linux and macOS — local in-process host,
+            system tray and native notifications — plus a plugin marketplace and a HarmonyOS build.
           </p>
           <ul class="card-tags">
-            <li>Electron</li><li>HarmonyOS</li><li>ArkTS</li><li>Node.js</li>
+            <li>Electron</li><li>DeepSeek Harness</li><li>HarmonyOS</li>
+          </ul>
+          <span class="card-link">Visit site <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+        </a>
+
+        <a class="project-card reveal" href="https://fellow99.github.io/pi-desktop-website/" target="_blank" rel="noopener">
+          <div class="card-top">
+            <span class="card-index">02</span>
+            <span class="card-icon card-icon-logo">
+              <img src="assets/logos/pi-desktop.svg" alt="" width="22" height="22">
+            </span>
+          </div>
+          <h3 class="card-title">Pi Desktop</h3>
+          <p class="card-desc">
+            An Electron shell for the Pi agent harness — 100% upstream Pi and Pi Web, zero upstream
+            changes. The Next.js server runs inside the app's main process, so your existing
+            <code>~/.pi</code> sessions, credentials and extensions carry over. Windows, macOS, Linux
+            and HarmonyOS.
+          </p>
+          <ul class="card-tags">
+            <li>Electron</li><li>Next.js</li><li>Pi harness</li><li>HarmonyOS</li>
+          </ul>
+          <span class="card-link">Visit site <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+        </a>
+
+        <a class="project-card reveal" href="https://fellow99.github.io/oc-desktop-website/" target="_blank" rel="noopener">
+          <div class="card-top">
+            <span class="card-index">03</span>
+            <span class="card-icon card-icon-logo">
+              <img src="assets/logos/oc-desktop.svg" alt="" width="22" height="22">
+            </span>
+          </div>
+          <h3 class="card-title">OC Desktop</h3>
+          <p class="card-desc">
+            opencode in its desktop form. Windows, Linux and macOS run the official upstream opencode
+            release; HarmonyOS 2in1 / tablet is provided here as a third-party port — plain-JavaScript
+            tool overrides where the platform has no PTY, on-device session persistence, signed HAP.
+          </p>
+          <ul class="card-tags">
+            <li>Electron</li><li>opencode</li><li>HarmonyOS</li>
           </ul>
           <span class="card-link">Visit site <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
         </a>
 
         <a class="project-card reveal" href="https://fellow99.github.io/tpl-website/" target="_blank" rel="noopener">
           <div class="card-top">
-            <span class="card-index">02</span>
+            <span class="card-index">04</span>
             <svg class="card-icon icon" aria-hidden="true"><use href="#i-layers"></use></svg>
           </div>
           <h3 class="card-title">TPL Framework</h3>
           <p class="card-desc">
-            One skeleton, five platforms. A multi-platform business application framework spanning
-            web, Android, HarmonyOS and WeChat mini program plus an admin console — with a unified
-            project structure, shared design tokens and dual backends.
+            One skeleton, five platforms. A business application framework spanning the web, Android,
+            HarmonyOS and WeChat mini program plus an admin console — one project layout, shared design
+            tokens, three languages, light/dark themes and dual backends.
           </p>
           <ul class="card-tags">
             <li>Vue 3</li><li>Spring Boot</li><li>Kotlin</li><li>ArkTS</li>
@@ -173,14 +223,15 @@
 
         <a class="project-card reveal" href="https://fellow99.github.io/fellow99-skills/" target="_blank" rel="noopener">
           <div class="card-top">
-            <span class="card-index">03</span>
+            <span class="card-index">05</span>
             <svg class="card-icon icon" aria-hidden="true"><use href="#i-spark"></use></svg>
           </div>
           <h3 class="card-title">fellow99 Skills</h3>
           <p class="card-desc">
-            A reusable library of AI agent skills: HarmonyOS development and on-device testing,
-            mini-program automation and CI, image generation, code-graph navigation and
-            spec-driven development flows.
+            Eleven reusable AI agent skills: HarmonyOS development and on-device testing over hdc,
+            WeChat mini program automation and CI, spec-driven development flows, as-built spec
+            generation, code-graph navigation and image generation — drop-in for OpenCode and
+            Claude Code.
           </p>
           <ul class="card-tags">
             <li>OpenCode</li><li>Claude Code</li><li>Node.js</li>
@@ -190,14 +241,14 @@
 
         <a class="project-card reveal" href="https://fellow99.github.io/llm-router/" target="_blank" rel="noopener">
           <div class="card-top">
-            <span class="card-index">04</span>
+            <span class="card-index">06</span>
             <svg class="card-icon icon" aria-hidden="true"><use href="#i-route"></use></svg>
           </div>
           <h3 class="card-title">LLM Router</h3>
           <p class="card-desc">
             An OpenAI-compatible gateway that aggregates many model providers behind a single
             endpoint: prefix-based routing, model aliases, weighted load balancing and automatic
-            failover — with streaming and structured logs.
+            failover — with SSE streaming, client auth, JSON logs and a Docker image.
           </p>
           <ul class="card-tags">
             <li>TypeScript</li><li>Express</li><li>Proxy</li>
@@ -207,14 +258,14 @@
 
         <a class="project-card reveal" href="https://fellow99.github.io/games-index/" target="_blank" rel="noopener">
           <div class="card-top">
-            <span class="card-index">05</span>
+            <span class="card-index">07</span>
             <svg class="card-icon icon" aria-hidden="true"><use href="#i-gamepad"></use></svg>
           </div>
           <h3 class="card-title">Games Index</h3>
           <p class="card-desc">
             A zero-dependency arcade of browser games — an AI-generated visual novel, a vertical
-            shoot-'em-up and minesweeper — hand-built with plain HTML, CSS and JavaScript.
-            Click and play.
+            shoot-'em-up and minesweeper — hand-built with plain HTML, CSS and JavaScript, with a
+            remembered light/dark theme. Click and play.
           </p>
           <ul class="card-tags">
             <li>HTML5</li><li>Canvas</li><li>Vanilla JS</li>
@@ -224,19 +275,37 @@
 
         <a class="project-card reveal" href="https://fellow99.github.io/three-editor-by-ai/" target="_blank" rel="noopener">
           <div class="card-top">
-            <span class="card-index">06</span>
+            <span class="card-index">08</span>
             <svg class="card-icon icon" aria-hidden="true"><use href="#i-cube"></use></svg>
           </div>
           <h3 class="card-title">Three Editor by AI</h3>
           <p class="card-desc">
-            A 3D scene editor written entirely by AI. Built with Vue 3 and Three.js: object
-            transforms, materials and lights, animation playback, GLTF / OBJ / FBX import and a
-            virtual file system for assets.
+            A browser 3D scene editor written by AI. Vue 3 and Three.js with transform gizmos and
+            undo/redo, PBR materials, five light types, GLTF animation playback, GLTF / OBJ / FBX and
+            3D Tiles import, post-processing and a virtual file system.
           </p>
           <ul class="card-tags">
             <li>Vue 3</li><li>Three.js</li><li>WebGL</li>
           </ul>
           <span class="card-link">Visit site <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+        </a>
+
+        <a class="project-card reveal" href="https://github.com/fellow99/magic-ruoyi" target="_blank" rel="noopener">
+          <div class="card-top">
+            <span class="card-index">09</span>
+            <svg class="card-icon icon" aria-hidden="true"><use href="#i-blocks"></use></svg>
+          </div>
+          <h3 class="card-title">magic-ruoyi</h3>
+          <p class="card-desc">
+            An enterprise rapid-development platform that merges RuoYi-Vue-Plus with the magic-api
+            dynamic interface engine: multi-tenant RBAC admin, an in-browser online API IDE, code
+            generation, monitoring and OSS storage on Spring Boot 3 and Vue 3. Self-hosted — clone
+            and run.
+          </p>
+          <ul class="card-tags">
+            <li>Spring Boot</li><li>Vue 3</li><li>magic-api</li><li>MyBatis-Plus</li>
+          </ul>
+          <span class="card-link">View on GitHub <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg></span>
         </a>
 
       </div>
@@ -251,12 +320,12 @@
         <p>
           I'm fellow99 — an independent full-stack developer who builds with AI, end to end. Most of
           my projects start as an idea plus an agent, then get shaped into shipped, cross-platform
-          open-source tools: desktop shells, multi-platform frameworks, model gateways and creative
-          editors.
+          open-source tools: desktop shells for agent harnesses, a multi-platform framework, a model
+          gateway, a low-code platform and creative editors.
         </p>
         <p>
           I care about clean architecture, honest documentation and things that run offline when they
-          can. Everything here is MIT-licensed and built in the open.
+          can. Everything here is public and built in the open, under MIT or Apache-2.0.
         </p>
         <p class="about-contact">
           Get in touch — <a href="mailto:fellow99@163.com">fellow99@163.com</a>
@@ -266,7 +335,7 @@
       <ul class="fact-list reveal">
         <li>
           <span class="fact-mark" aria-hidden="true">01</span>
-          <span class="fact-text">Ships across five targets: Windows / Linux / macOS, HarmonyOS, Android, WeChat mini program and the web.</span>
+          <span class="fact-text">Ships across seven targets: Windows / Linux / macOS, HarmonyOS, Android, WeChat mini program and the web.</span>
         </li>
         <li>
           <span class="fact-mark" aria-hidden="true">02</span>
@@ -274,7 +343,7 @@
         </li>
         <li>
           <span class="fact-mark" aria-hidden="true">03</span>
-          <span class="fact-text">Open source first: every project is public and MIT-licensed.</span>
+          <span class="fact-text">Open source first: every project is public — mostly MIT, with two under Apache-2.0.</span>
         </li>
       </ul>
     </div>

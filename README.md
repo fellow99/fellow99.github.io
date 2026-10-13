@@ -1,6 +1,6 @@
 # fellow99.github.io
 
-> GitHub 个人主页（User Pages）——**六个开源项目的统一入口**。
+> GitHub 个人主页（User Pages）——**九个开源项目的统一入口**。
 >
 > 线上地址：<https://fellow99.github.io>
 >
@@ -13,16 +13,16 @@
 ## 一、定位与目标
 
 `fellow99.github.io` 是 GitHub 用户主页。站点的唯一职责是：**用一个纯静态、零依赖的页面，
-把「人、项目、能力」三件事讲清楚，并作为六个子站点的总入口。**
+把「人、项目、能力」三件事讲清楚，并作为九个项目的总入口。**
 
 | 受众 | 关心什么 | 主页对应区块 |
 |---|---|---|
 | 招聘 / 合作方 | 这个人是谁、能力边界在哪 | Hero + About（含邮箱） |
-| 同行开发者 | 有哪些值得一看的开源项目 | 六张项目卡片 |
-| 偶然到访者 | 快速找到想玩的 / 想用的 | 卡片直达六个入口 |
+| 同行开发者 | 有哪些值得一看的开源项目 | 九张项目卡片 |
+| 偶然到访者 | 快速找到想玩的 / 想用的 | 卡片直达九个入口 |
 
-**叙事主线**：*一个人，六个开源项目，一条 AI-native 的跨端产品线*。
-从桌面端 → 跨端框架 → Agent 能力 → 模型网关 → 轻量娱乐 → 3D 工具，逐层展开。
+**叙事主线**：*一个人，九个开源项目，一条 AI-native 的跨端产品线*。
+从桌面端（三个 Agent 运行环境外壳）→ 跨端框架 → Agent 能力 → 模型网关 → 低代码平台 → 轻量娱乐 → 3D 工具，逐层展开。
 
 ### 非目标（YAGNI）
 
@@ -32,19 +32,25 @@
 
 ---
 
-## 二、六个入口（事实来源：各工程 README）
+## 二、九个入口（事实来源：各工程 README 与线上站点）
 
 | # | 入口 URL | 相关工程 | 定位 | 技术标签 |
 |---|---|---|---|---|
-| 01 | `/dsh-desktop-website/` | `d:\deepseek-harness-workspace` | 把开源 AI Agent 运行环境 DeepSeek Harness 装进桌面：Electron 覆盖 Windows/Linux/macOS，并移植到 HarmonyOS 2in1/平板，复用官方 Web UI、零上游改动 | Electron · HarmonyOS · ArkTS · Node.js |
-| 02 | `/tpl-website/` | `d:\tpl-workspace` | 多端业务应用框架「一套骨架，贯通五端」：Web / Android / HarmonyOS / 微信小程序 + 管理后台，统一工程结构与双后端 | Vue 3 · Spring Boot · Kotlin · ArkTS |
-| 03 | `/fellow99-skills/` | `d:\GitHub\fellow99\fellow99-skills` | 可复用的 AI Agent 技能集：HarmonyOS 开发与真机测试、小程序自动化与 CI、图像生成、代码知识图谱导航、规范驱动开发 | OpenCode · Claude Code · Node.js |
-| 04 | `/llm-router/` | `d:\GitHub\fellow99\llm-router` | OpenAI 兼容的多模型聚合路由网关：前缀路由、模型别名、加权负载均衡、故障回退、流式响应 | TypeScript · Express · Proxy |
-| 05 | `/games-index/` | `d:\GitHub\fellow99\games-index` | 原生 HTML/JS/CSS 小游戏合集入口：视觉小说、竖版打飞机、扫雷，即点即玩 | HTML5 · Canvas · Vanilla JS |
-| 06 | `/three-editor-by-ai/` | `d:\GitHub\fellow99\three-editor-by-ai` | 由 AI 全程编写代码的 Vue 3 + Three.js 3D 场景编辑器：变换 / 材质 / 灯光 / 动画 / GLTF 导入 / 虚拟文件系统 | Vue 3 · Three.js · WebGL |
+| 01 | `/dsh-desktop-website/` | `d:\deepseek-harness-workspace` | 把开源 AI Agent 运行环境 DeepSeek Harness 装进桌面：Electron 覆盖 Windows/Linux/macOS，并有 HarmonyOS 版本；官方 dsh Web UI 零改动、本地进程内宿主、系统托盘与原生通知、内置插件市场 | Electron · DeepSeek Harness · HarmonyOS |
+| 02 | `/pi-desktop-website/` | `d:\pi-workspace` | Pi Agent 运行环境的 Electron 外壳：上游 Pi / Pi Web 零改动，Next.js 服务跑在应用主进程内、沿用 `~/.pi` 会话与扩展，覆盖 Windows/macOS/Linux 与 HarmonyOS | Electron · Next.js · Pi harness · HarmonyOS |
+| 03 | `/oc-desktop-website/` | `d:\opencode-workspace` | opencode 的桌面形态：Windows/Linux/macOS 使用官方上游发行版，HarmonyOS 2in1/平板由本项目第三方移植（纯 JS 工具替代、端侧会话持久化、签名 HAP） | Electron · opencode · HarmonyOS |
+| 04 | `/tpl-website/` | `d:\tpl-workspace` | 多端业务应用框架「一套骨架，贯通五端」：Web / Android / HarmonyOS / 微信小程序 + 管理后台，统一工程结构、共享设计令牌、三语 i18n、亮暗主题与双后端 | Vue 3 · Spring Boot · Kotlin · ArkTS |
+| 05 | `/fellow99-skills/` | `d:\GitHub\fellow99\fellow99-skills` | 11 个可复用的 AI Agent 技能：HarmonyOS 开发与 hdc 真机测试、微信小程序自动化与 CI、规范驱动开发、as-built 规格反写、代码知识图谱导航、图像生成 | OpenCode · Claude Code · Node.js |
+| 06 | `/llm-router/` | `d:\GitHub\fellow99\llm-router` | OpenAI 兼容的多模型聚合路由网关：前缀路由、模型别名、加权负载均衡、故障回退、SSE 流式响应、客户端鉴权与 Docker 镜像 | TypeScript · Express · Proxy |
+| 07 | `/games-index/` | `d:\GitHub\fellow99\games-index` | 原生 HTML/JS/CSS 小游戏合集入口：视觉小说、竖版打飞机、扫雷，零依赖、记忆主题，即点即玩 | HTML5 · Canvas · Vanilla JS |
+| 08 | `/three-editor-by-ai/` | `d:\GitHub\fellow99\three-editor-by-ai` | 由 AI 编写代码的 Vue 3 + Three.js 浏览器 3D 场景编辑器：变换与撤销重做 / PBR 材质 / 五种灯光 / GLTF 动画 / GLTF·OBJ·FBX·3D Tiles 导入 / 虚拟文件系统 | Vue 3 · Three.js · WebGL |
+| 09 | `github.com/fellow99/magic-ruoyi`（仓库，无线上站点） | `d:\GitHub\fellow99\magic-ruoyi` | RuoYi-Vue-Plus + magic-api 动态接口引擎的企业级快速开发平台：多租户与 RBAC 后台、浏览器内在线 API IDE、代码生成、监控与 OSS 存储 | Spring Boot · Vue 3 · magic-api · MyBatis-Plus |
 
-> **事实守则**：卡片文案只使用各工程 README 中可验证的描述，不编造能力、版本或官方关系。
+> **事实守则**：卡片文案只使用各工程 README 与线上站点中可验证的描述，不编造能力、版本或官方关系。
 > 产品事实变化时，同步更新两个语言页面与本表。
+>
+> **图标来源**：01–03 卡片直接使用各工程自带的 `assets/logo.svg`（已按字节复制到本站 `assets/logos/`）；
+> 其余卡片使用站内内联 SVG 雪碧图（`#i-layers` / `#i-spark` / `#i-route` / `#i-gamepad` / `#i-cube` / `#i-blocks`）。
 
 ---
 
@@ -58,7 +64,7 @@
 ├───────────────────────────────────────────────────────────┤
 │ Hero  $ whoami · H1 fellow99 · 角色行 · lede · CTA · 3 项统计 │
 ├───────────────────────────────────────────────────────────┤
-│ 项目   6 张卡片（编号 01–06 + 图标 + 标题 + 描述 + 标签 + 进入）│
+│ 项目   9 张卡片（编号 01–09 + 图标 + 标题 + 描述 + 标签 + 进入）│
 ├───────────────────────────────────────────────────────────┤
 │ 关于   一段自述 + 三条事实清单 + 联系方式（邮箱）              │
 ├───────────────────────────────────────────────────────────┤
@@ -110,7 +116,7 @@ EN / ZH 必须**结构完全一致** —— 区块顺序、元素类名、交互
 - **单一加速色**：靛蓝，仅用于 eyebrow、图标、按钮、hover 描边、链接——不堆砌渐变。
 - **视觉签名**：`$` 前缀的 mono eyebrow（`$ whoami`、`$ ls -1 projects/`、`$ man fellow99`）；
   极细 hairline 边框；Hero 一层径向辉光 + 64px 网格（token 驱动、mask 渐隐）。
-- **图标**：内联 `<svg><symbol>` 雪碧图（`#i-desktop`/`#i-layers`/`#i-spark`/`#i-route`/`#i-gamepad`/`#i-cube`/`#i-sun`/`#i-moon`/`#i-external`），零外部资源。
+- **图标**：两套并用。① 项目自带品牌标 `assets/logos/*.svg`（01–03 卡片，`<img>` 放在 `.card-icon-logo` 内，内框 22px，与外层 40px 图标盒对齐）；② 站内内联 `<svg><symbol>` 雪碧图（`#i-layers`/`#i-spark`/`#i-route`/`#i-gamepad`/`#i-cube`/`#i-blocks`/`#i-github`/`#i-sun`/`#i-moon`/`#i-external`/`#i-desktop`）。两者都不产生任何外部请求。
 
 ### 4.3 无障碍
 
@@ -162,14 +168,15 @@ fellow99.github.io/
 ├── index_zh.html       # 简体中文版（lang="zh-CN"），index.html 的 1:1 结构镜像
 ├── assets/
 │   ├── style.css       # 全部样式：token + 主题 + 布局 + 组件 + 响应式 + 动效
-│   └── script.js       # 主题切换/记忆、导航高亮、滚动淡入、年份（语言中立）
+│   ├── script.js       # 主题切换/记忆、导航高亮、滚动淡入、年份（语言中立）
+│   └── logos/          # 01–03 卡片的项目品牌标（各工程 assets/logo.svg 的字节副本）
 ├── logs/               # 分阶段开发产物（设计、checklist、review、测试报告）
 ├── README.md           # 本文件（设计文档）
 └── LICENSE             # MIT
 ```
 
 **约束**：纯原生 HTML + CSS + JS；无框架、无构建步骤、无 CDN、无第三方 JS 库；
-无 `fetch`、无外部字体/图片请求——`file://` 直接双击即可完整渲染。
+无 `fetch`、无外部字体或远程图片请求（唯一图片为站内本地 `assets/logos/*.svg`）——`file://` 直接双击即可完整渲染。
 
 ---
 
@@ -219,4 +226,11 @@ npx serve .                       # 然后访问 http://localhost:3000/
 [MIT](./LICENSE) © 2026 fellow99
 
 [dsh-desktop-website]: https://fellow99.github.io/dsh-desktop-website/
+[pi-desktop-website]: https://fellow99.github.io/pi-desktop-website/
+[oc-desktop-website]: https://fellow99.github.io/oc-desktop-website/
 [tpl-website]: https://fellow99.github.io/tpl-website/
+[fellow99-skills]: https://fellow99.github.io/fellow99-skills/
+[llm-router]: https://fellow99.github.io/llm-router/
+[games-index]: https://fellow99.github.io/games-index/
+[three-editor-by-ai]: https://fellow99.github.io/three-editor-by-ai/
+[magic-ruoyi]: https://github.com/fellow99/magic-ruoyi

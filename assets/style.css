@@ -425,12 +425,25 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
   color: var(--accent);
 }
 
+/* Logo-backed card icons: the brand mark shipped by the project itself.
+   The 22px inner box matches the padding of the sprite icons above. */
+.card-icon-logo { display: grid; place-items: center; }
+.card-icon-logo img { width: 22px; height: 22px; }
+
 .card-title {
   font-size: 19px;
   font-weight: 650;
   letter-spacing: -0.015em;
 }
 .card-desc { font-size: 14.5px; color: var(--muted); }
+.card-desc code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  padding: 1px 5px;
+  border-radius: 6px;
+  background: var(--surface-2);
+  border: 1px solid var(--hairline);
+}
 
 .card-tags {
   display: flex;
