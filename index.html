@@ -47,10 +47,6 @@
     <circle cx="18" cy="12" r="2.5"/>
     <path d="M8.5 6H13a3 3 0 0 1 3 3v.5M8.5 18H13a3 3 0 0 0 3-3v-.5"/>
   </symbol>
-  <symbol id="i-gamepad" viewBox="0 0 24 24">
-    <path d="M8 7h8a5.5 5.5 0 0 1 5.5 5.5A3.5 3.5 0 0 1 15.2 14L14 12.5h-4L8.8 14A3.5 3.5 0 0 1 2.5 12.5 5.5 5.5 0 0 1 8 7Z"/>
-    <path d="M7 10.2v2.6M5.7 11.5h2.6M16.4 10.6h.01M18 12.2h.01"/>
-  </symbol>
   <symbol id="i-cube" viewBox="0 0 24 24">
     <path d="M12 2.8 21 8v8l-9 5.2L3 16V8l9-5.2Z"/>
     <path d="m3 8 9 5.2L21 8M12 13.2V21"/>
@@ -115,9 +111,10 @@
       <p class="hero-role reveal">Full-stack builder shipping AI-native tools across desktop, web &amp; mobile</p>
       <p class="hero-lede reveal">
         I design, build and ship open-source products that put AI agents to work — three native desktop
-        shells for agent harnesses, a five-platform business framework, an OpenAI-compatible LLM
-        gateway, a reusable skills library, a low-code enterprise platform, a 3D scene editor and a
-        small arcade. Agents write the first draft; I own the architecture, review and release.
+        shells for agent harnesses, an in-process Node.js runtime for Android and HarmonyOS apps, a
+        five-platform business framework, an OpenAI-compatible LLM gateway, a reusable skills library,
+        a low-code enterprise platform and a 3D scene editor. Agents write the first draft; I own the
+        architecture, review and release.
       </p>
 
       <div class="hero-actions reveal">
@@ -155,9 +152,11 @@
           </div>
           <h3 class="card-title">DSH Desktop</h3>
           <p class="card-desc">
-            The open-source DeepSeek Harness agent as a native desktop app. The official dsh Web UI runs
-            unchanged inside an Electron shell on Windows, Linux and macOS — local in-process host,
-            system tray and native notifications — plus a plugin marketplace and a HarmonyOS build.
+            The open-source DeepSeek Harness agent in native desktop shells. The official dsh Web UI
+            runs unchanged on Windows, Linux and macOS through an Electron shell with a local
+            in-process host, system tray, native notifications and a built-in plugin marketplace —
+            plus two HarmonyOS editions: Electron on HarmonyOS, and an ArkWeb shell on an in-process
+            Node runtime.
           </p>
           <ul class="card-tags">
             <li>Electron</li><li>DeepSeek Harness</li><li>HarmonyOS</li>
@@ -176,8 +175,9 @@
           <p class="card-desc">
             An Electron shell for the Pi agent harness — 100% upstream Pi and Pi Web, zero upstream
             changes. The Next.js server runs inside the app's main process, so your existing
-            <code>~/.pi</code> sessions, credentials and extensions carry over. Windows, macOS, Linux
-            and HarmonyOS.
+            <code>~/.pi</code> sessions, credentials and extensions carry over. Ships on Windows,
+            macOS and Linux, plus two HarmonyOS editions built on Electron and on an in-process Node
+            runtime.
           </p>
           <ul class="card-tags">
             <li>Electron</li><li>Next.js</li><li>Pi harness</li><li>HarmonyOS</li>
@@ -194,9 +194,11 @@
           </div>
           <h3 class="card-title">OC Desktop</h3>
           <p class="card-desc">
-            opencode in its desktop form. Windows, Linux and macOS run the official upstream opencode
-            release; HarmonyOS 2in1 / tablet is provided here as a third-party port — plain-JavaScript
-            tool overrides where the platform has no PTY, on-device session persistence, signed HAP.
+            opencode in its desktop form. Windows, Linux and macOS run the official upstream release;
+            HarmonyOS 2in1 / tablet is a third-party port shipped as two coexisting editions —
+            HarmonyOS Edition (an in-process Node server rendered by ArkWeb, no Electron) and Electron
+            on HarmonyOS Edition. The official Web UI loads same-origin from a local port, zero
+            upstream changes.
           </p>
           <ul class="card-tags">
             <li>Electron</li><li>opencode</li><li>HarmonyOS</li>
@@ -204,9 +206,30 @@
           <span class="card-link">Visit site <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
         </a>
 
-        <a class="project-card reveal" href="https://fellow99.github.io/tpl-website/" target="_blank" rel="noopener">
+        <a class="project-card reveal" href="https://fellow99.github.io/node-bridge-website/" target="_blank" rel="noopener">
           <div class="card-top">
             <span class="card-index">04</span>
+            <span class="card-icon card-icon-logo">
+              <img src="assets/logos/node-bridge.svg" alt="" width="22" height="22">
+            </span>
+          </div>
+          <h3 class="card-title">Node Bridge</h3>
+          <p class="card-desc">
+            Embed a real Node.js runtime inside your Android or HarmonyOS app's own process — not a
+            WebView, cloud function or subprocess. A JNI/NAPI bootstrap <code>dlopen</code>s
+            <code>libnode.so</code> and calls <code>node::Start</code>, bridging JavaScript to Kotlin
+            or ArkTS over bidirectional JSON. Four packages — a bridge and an engine runtime per
+            platform, published on Maven Central and ohpm (Node v24.2, arm64-v8a).
+          </p>
+          <ul class="card-tags">
+            <li>Node.js</li><li>Android</li><li>HarmonyOS</li><li>JNI/NAPI</li>
+          </ul>
+          <span class="card-link">Visit site <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+        </a>
+
+        <a class="project-card reveal" href="https://fellow99.github.io/tpl-website/" target="_blank" rel="noopener">
+          <div class="card-top">
+            <span class="card-index">05</span>
             <svg class="card-icon icon" aria-hidden="true"><use href="#i-layers"></use></svg>
           </div>
           <h3 class="card-title">TPL Framework</h3>
@@ -223,15 +246,15 @@
 
         <a class="project-card reveal" href="https://fellow99.github.io/fellow99-skills/" target="_blank" rel="noopener">
           <div class="card-top">
-            <span class="card-index">05</span>
+            <span class="card-index">06</span>
             <svg class="card-icon icon" aria-hidden="true"><use href="#i-spark"></use></svg>
           </div>
           <h3 class="card-title">fellow99 Skills</h3>
           <p class="card-desc">
-            Eleven reusable AI agent skills: HarmonyOS development and on-device testing over hdc,
-            WeChat mini program automation and CI, spec-driven development flows, as-built spec
-            generation, code-graph navigation and image generation — drop-in for OpenCode and
-            Claude Code.
+            Eleven reusable AI agent skills — HarmonyOS development and hdc on-device testing, WeChat
+            mini-program automation and CI, spec-driven development flows, as-built spec generation,
+            code-graph navigation, image generation and an ESP32 image-to-C converter. Drop-in for
+            OpenCode and Claude Code.
           </p>
           <ul class="card-tags">
             <li>OpenCode</li><li>Claude Code</li><li>Node.js</li>
@@ -241,7 +264,7 @@
 
         <a class="project-card reveal" href="https://fellow99.github.io/llm-router/" target="_blank" rel="noopener">
           <div class="card-top">
-            <span class="card-index">06</span>
+            <span class="card-index">07</span>
             <svg class="card-icon icon" aria-hidden="true"><use href="#i-route"></use></svg>
           </div>
           <h3 class="card-title">LLM Router</h3>
@@ -252,23 +275,6 @@
           </p>
           <ul class="card-tags">
             <li>TypeScript</li><li>Express</li><li>Proxy</li>
-          </ul>
-          <span class="card-link">Visit site <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
-        </a>
-
-        <a class="project-card reveal" href="https://fellow99.github.io/games-index/" target="_blank" rel="noopener">
-          <div class="card-top">
-            <span class="card-index">07</span>
-            <svg class="card-icon icon" aria-hidden="true"><use href="#i-gamepad"></use></svg>
-          </div>
-          <h3 class="card-title">Games Index</h3>
-          <p class="card-desc">
-            A zero-dependency arcade of browser games — an AI-generated visual novel, a vertical
-            shoot-'em-up and minesweeper — hand-built with plain HTML, CSS and JavaScript, with a
-            remembered light/dark theme. Click and play.
-          </p>
-          <ul class="card-tags">
-            <li>HTML5</li><li>Canvas</li><li>Vanilla JS</li>
           </ul>
           <span class="card-link">Visit site <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
         </a>
@@ -343,7 +349,7 @@
         </li>
         <li>
           <span class="fact-mark" aria-hidden="true">03</span>
-          <span class="fact-text">Open source first: every project is public — mostly MIT, with two under Apache-2.0.</span>
+          <span class="fact-text">Open source first: nine public projects — mostly MIT, with one under Apache-2.0.</span>
         </li>
       </ul>
     </div>

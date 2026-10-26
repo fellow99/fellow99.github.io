@@ -47,10 +47,6 @@
     <circle cx="18" cy="12" r="2.5"/>
     <path d="M8.5 6H13a3 3 0 0 1 3 3v.5M8.5 18H13a3 3 0 0 0 3-3v-.5"/>
   </symbol>
-  <symbol id="i-gamepad" viewBox="0 0 24 24">
-    <path d="M8 7h8a5.5 5.5 0 0 1 5.5 5.5A3.5 3.5 0 0 1 15.2 14L14 12.5h-4L8.8 14A3.5 3.5 0 0 1 2.5 12.5 5.5 5.5 0 0 1 8 7Z"/>
-    <path d="M7 10.2v2.6M5.7 11.5h2.6M16.4 10.6h.01M18 12.2h.01"/>
-  </symbol>
   <symbol id="i-cube" viewBox="0 0 24 24">
     <path d="M12 2.8 21 8v8l-9 5.2L3 16V8l9-5.2Z"/>
     <path d="m3 8 9 5.2L21 8M12 13.2V21"/>
@@ -115,8 +111,9 @@
       <p class="hero-role reveal">全栈开发者 · 用 AI 打造跨桌面、Web 与移动端的工具</p>
       <p class="hero-lede reveal">
         我设计、开发并发布把 AI Agent 真正用起来的开源产品——三款 Agent 运行环境的原生桌面外壳、
-        贯通五端的业务框架、OpenAI 兼容的大模型网关、可复用技能库、低代码企业平台、3D 场景编辑器，
-        以及一个轻量游戏合集。Agent 负责初稿，我来把握架构、评审与发布。
+        把真正的 Node.js 嵌入 Android 与鸿蒙应用自身进程的运行时、贯通五端的业务框架、
+        OpenAI 兼容的大模型网关、可复用技能库、低代码企业平台与 3D 场景编辑器。
+        Agent 负责初稿，我来把握架构、评审与发布。
       </p>
 
       <div class="hero-actions reveal">
@@ -154,9 +151,9 @@
           </div>
           <h3 class="card-title">DSH Desktop</h3>
           <p class="card-desc">
-            把开源 AI Agent 运行环境 DeepSeek Harness 装进桌面。官方 dsh Web UI 原样运行在 Electron
-            外壳中，覆盖 Windows、Linux 与 macOS——本地进程内宿主、系统托盘与原生通知——另有插件市场
-            与 HarmonyOS 版本。
+            把开源 AI Agent 运行环境 DeepSeek Harness 做成原生桌面应用。官方 dsh Web UI 原样运行于
+            Windows、Linux 与 macOS 的 Electron 外壳：本地进程内宿主、系统托盘、原生通知与内置插件市场；
+            另有两个鸿蒙版别——Electron 鸿蒙版，以及基于进程内 Node 运行时与 ArkWeb 的鸿蒙版。
           </p>
           <ul class="card-tags">
             <li>Electron</li><li>DeepSeek Harness</li><li>HarmonyOS</li>
@@ -175,7 +172,7 @@
           <p class="card-desc">
             Pi Agent 运行环境的 Electron 外壳——上游 Pi 与 Pi Web 100% 原样，零上游改动。Next.js
             服务跑在应用主进程内，因此你现有的 <code>~/.pi</code> 会话、凭据与扩展都能直接沿用。
-            覆盖 Windows、macOS、Linux 与 HarmonyOS。
+            覆盖 Windows、macOS 与 Linux，并提供基于 Electron 与进程内 Node 运行时的两个鸿蒙版别。
           </p>
           <ul class="card-tags">
             <li>Electron</li><li>Next.js</li><li>Pi harness</li><li>HarmonyOS</li>
@@ -192,9 +189,9 @@
           </div>
           <h3 class="card-title">OC Desktop</h3>
           <p class="card-desc">
-            opencode 的桌面形态。Windows、Linux 与 macOS 使用官方上游 opencode 发行版；HarmonyOS
-            2in1 / 平板由本项目以第三方移植提供——在缺少 PTY 的平台上改用纯 JavaScript 工具实现，
-            并支持端侧会话持久化与签名 HAP。
+            opencode 的桌面形态。Windows、Linux 与 macOS 使用官方上游发行版；HarmonyOS 2in1 / 平板由
+            本项目以第三方移植提供两个可同机共存的版别——鸿蒙版（进程内 Node 服务 + ArkWeb，无
+            Electron）与 Electron 鸿蒙版。官方 Web UI 从本地端口同源加载，零上游改动。
           </p>
           <ul class="card-tags">
             <li>Electron</li><li>opencode</li><li>HarmonyOS</li>
@@ -202,9 +199,30 @@
           <span class="card-link">进入站点 <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
         </a>
 
-        <a class="project-card reveal" href="https://fellow99.github.io/tpl-website/" target="_blank" rel="noopener">
+        <a class="project-card reveal" href="https://fellow99.github.io/node-bridge-website/" target="_blank" rel="noopener">
           <div class="card-top">
             <span class="card-index">04</span>
+            <span class="card-icon card-icon-logo">
+              <img src="assets/logos/node-bridge.svg" alt="" width="22" height="22">
+            </span>
+          </div>
+          <h3 class="card-title">Node Bridge</h3>
+          <p class="card-desc">
+            把真正的 Node.js 运行时嵌进 Android 或鸿蒙应用自身的进程——不是 WebView、云函数或子进程。
+            JNI/NAPI 引导层以 <code>dlopen</code> 加载 <code>libnode.so</code> 并调用
+            <code>node::Start</code>，通过双向 JSON 在 JavaScript 与 Kotlin / ArkTS 之间通信。
+            共四个包：每个平台各一个桥接库与引擎运行时，发布于 Maven Central 与 ohpm
+            （Node v24.2，arm64-v8a）。
+          </p>
+          <ul class="card-tags">
+            <li>Node.js</li><li>Android</li><li>HarmonyOS</li><li>JNI/NAPI</li>
+          </ul>
+          <span class="card-link">进入站点 <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+        </a>
+
+        <a class="project-card reveal" href="https://fellow99.github.io/tpl-website/" target="_blank" rel="noopener">
+          <div class="card-top">
+            <span class="card-index">05</span>
             <svg class="card-icon icon" aria-hidden="true"><use href="#i-layers"></use></svg>
           </div>
           <h3 class="card-title">TPL 多端框架</h3>
@@ -220,14 +238,14 @@
 
         <a class="project-card reveal" href="https://fellow99.github.io/fellow99-skills/" target="_blank" rel="noopener">
           <div class="card-top">
-            <span class="card-index">05</span>
+            <span class="card-index">06</span>
             <svg class="card-icon icon" aria-hidden="true"><use href="#i-spark"></use></svg>
           </div>
           <h3 class="card-title">fellow99 技能集</h3>
           <p class="card-desc">
             十一个可复用的 AI Agent 技能：HarmonyOS 开发与 hdc 真机测试、微信小程序自动化与 CI、
-            规范驱动开发流程、as-built 规格反写、代码知识图谱导航与图像生成——可直接用于 OpenCode
-            与 Claude Code。
+            规范驱动开发流程、as-built 规格反写、代码知识图谱导航、图像生成，以及 ESP32 图片转
+            C 数组工具——可直接用于 OpenCode 与 Claude Code。
           </p>
           <ul class="card-tags">
             <li>OpenCode</li><li>Claude Code</li><li>Node.js</li>
@@ -237,7 +255,7 @@
 
         <a class="project-card reveal" href="https://fellow99.github.io/llm-router/" target="_blank" rel="noopener">
           <div class="card-top">
-            <span class="card-index">06</span>
+            <span class="card-index">07</span>
             <svg class="card-icon icon" aria-hidden="true"><use href="#i-route"></use></svg>
           </div>
           <h3 class="card-title">LLM Router 大模型路由</h3>
@@ -247,22 +265,6 @@
           </p>
           <ul class="card-tags">
             <li>TypeScript</li><li>Express</li><li>Proxy</li>
-          </ul>
-          <span class="card-link">进入站点 <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
-        </a>
-
-        <a class="project-card reveal" href="https://fellow99.github.io/games-index/" target="_blank" rel="noopener">
-          <div class="card-top">
-            <span class="card-index">07</span>
-            <svg class="card-icon icon" aria-hidden="true"><use href="#i-gamepad"></use></svg>
-          </div>
-          <h3 class="card-title">游戏索引</h3>
-          <p class="card-desc">
-            零依赖的浏览器游戏合集：AI 生成的视觉小说、竖版打飞机与扫雷——全部用原生 HTML、CSS 与
-            JavaScript 手写，并会记住你的亮/暗主题选择。即点即玩。
-          </p>
-          <ul class="card-tags">
-            <li>HTML5</li><li>Canvas</li><li>Vanilla JS</li>
           </ul>
           <span class="card-link">进入站点 <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
         </a>
@@ -335,7 +337,7 @@
         </li>
         <li>
           <span class="fact-mark" aria-hidden="true">03</span>
-          <span class="fact-text">开源优先：每个项目都公开——多数为 MIT，其中两个采用 Apache-2.0。</span>
+          <span class="fact-text">开源优先：九个项目全部公开——多数为 MIT，仅一个采用 Apache-2.0。</span>
         </li>
       </ul>
     </div>
